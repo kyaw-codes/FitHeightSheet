@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80D6C2C2B9CDEED00F52112 /* FitHeightSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C80D6C2B2B9CDEED00F52112 /* FitHeightSheet */; };
 		C88FFD4D2B9CD6660020C812 /* FitHeightSheetExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFD4C2B9CD6660020C812 /* FitHeightSheetExampleApp.swift */; };
 		C88FFD4F2B9CD6660020C812 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFD4E2B9CD6660020C812 /* ContentView.swift */; };
 		C88FFD512B9CD6670020C812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88FFD502B9CD6670020C812 /* Assets.xcassets */; };
 		C88FFD542B9CD6670020C812 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88FFD532B9CD6670020C812 /* Preview Assets.xcassets */; };
-		C88FFD5C2B9CD86B0020C812 /* FitHeightSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C88FFD5B2B9CD86B0020C812 /* FitHeightSheet */; };
 		C88FFD5E2B9CD89D0020C812 /* RegisterFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFD5D2B9CD89D0020C812 /* RegisterFormView.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C88FFD5C2B9CD86B0020C812 /* FitHeightSheet in Frameworks */,
+				C80D6C2C2B9CDEED00F52112 /* FitHeightSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 			);
 			name = FitHeightSheetExample;
 			packageProductDependencies = (
-				C88FFD5B2B9CD86B0020C812 /* FitHeightSheet */,
+				C80D6C2B2B9CDEED00F52112 /* FitHeightSheet */,
 			);
 			productName = FitHeightSheetExample;
 			productReference = C88FFD492B9CD6660020C812 /* FitHeightSheetExample.app */;
@@ -120,7 +120,7 @@
 			);
 			mainGroup = C88FFD402B9CD6660020C812;
 			packageReferences = (
-				C88FFD5A2B9CD86B0020C812 /* XCRemoteSwiftPackageReference "FitHeightSheet" */,
+				C80D6C2A2B9CDEED00F52112 /* XCRemoteSwiftPackageReference "FitHeightSheet" */,
 			);
 			productRefGroup = C88FFD4A2B9CD6660020C812 /* Products */;
 			projectDirPath = "";
@@ -360,7 +360,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C88FFD5A2B9CD86B0020C812 /* XCRemoteSwiftPackageReference "FitHeightSheet" */ = {
+		C80D6C2A2B9CDEED00F52112 /* XCRemoteSwiftPackageReference "FitHeightSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kyaw-codes/FitHeightSheet.git";
 			requirement = {
@@ -371,9 +371,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C88FFD5B2B9CD86B0020C812 /* FitHeightSheet */ = {
+		C80D6C2B2B9CDEED00F52112 /* FitHeightSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C88FFD5A2B9CD86B0020C812 /* XCRemoteSwiftPackageReference "FitHeightSheet" */;
+			package = C80D6C2A2B9CDEED00F52112 /* XCRemoteSwiftPackageReference "FitHeightSheet" */;
 			productName = FitHeightSheet;
 		};
 /* End XCSwiftPackageProductDependency section */

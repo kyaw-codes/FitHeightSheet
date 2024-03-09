@@ -43,7 +43,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        ZStack(alignment: .top) {
+        ZStack {
             content
                 .zIndex(0)
 
