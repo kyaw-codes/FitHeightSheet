@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "fitheightsheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kyaw-codes/FitHeightSheet.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b5b7f98248a2bafa3b0fe7da8e8c49689f0d26ec"
+      }
+    }
+  ],
+  "version" : 2
+}

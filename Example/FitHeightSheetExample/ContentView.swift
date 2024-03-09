@@ -6,19 +6,23 @@
 //
 
 import SwiftUI
+import FitHeightSheet
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+  @State private var isFormShowing = false
+  
+  var body: some View {
+    VStack {
+      Button("Show form") {
+        isFormShowing.toggle()
+      }
     }
+    .fitHeightSheet(isPresented: $isFormShowing) {
+      RegisterFormView()
+    }
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
