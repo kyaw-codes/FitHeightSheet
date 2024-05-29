@@ -3,71 +3,68 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C80D6C2C2B9CDEED00F52112 /* FitHeightSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C80D6C2B2B9CDEED00F52112 /* FitHeightSheet */; };
-		C88FFD4D2B9CD6660020C812 /* FitHeightSheetExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFD4C2B9CD6660020C812 /* FitHeightSheetExampleApp.swift */; };
-		C88FFD4F2B9CD6660020C812 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFD4E2B9CD6660020C812 /* ContentView.swift */; };
-		C88FFD512B9CD6670020C812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88FFD502B9CD6670020C812 /* Assets.xcassets */; };
-		C88FFD542B9CD6670020C812 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88FFD532B9CD6670020C812 /* Preview Assets.xcassets */; };
-		C88FFD5E2B9CD89D0020C812 /* RegisterFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88FFD5D2B9CD89D0020C812 /* RegisterFormView.swift */; };
+		C8032B782C073672008C4A7E /* FitHeightSheetDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B772C073672008C4A7E /* FitHeightSheetDemoApp.swift */; };
+		C8032B7A2C073672008C4A7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B792C073672008C4A7E /* ContentView.swift */; };
+		C8032B7C2C073673008C4A7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8032B7B2C073673008C4A7E /* Assets.xcassets */; };
+		C8032B7F2C073673008C4A7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8032B7E2C073673008C4A7E /* Preview Assets.xcassets */; };
+		C8032B872C0736D1008C4A7E /* FitHeightSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C8032B862C0736D1008C4A7E /* FitHeightSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C88FFD492B9CD6660020C812 /* FitHeightSheetExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitHeightSheetExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C88FFD4C2B9CD6660020C812 /* FitHeightSheetExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitHeightSheetExampleApp.swift; sourceTree = "<group>"; };
-		C88FFD4E2B9CD6660020C812 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C88FFD502B9CD6670020C812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C88FFD532B9CD6670020C812 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C88FFD5D2B9CD89D0020C812 /* RegisterFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFormView.swift; sourceTree = "<group>"; };
+		C8032B742C073672008C4A7E /* FitHeightSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitHeightSheetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8032B772C073672008C4A7E /* FitHeightSheetDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitHeightSheetDemoApp.swift; sourceTree = "<group>"; };
+		C8032B792C073672008C4A7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C8032B7B2C073673008C4A7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8032B7E2C073673008C4A7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C88FFD462B9CD6660020C812 /* Frameworks */ = {
+		C8032B712C073672008C4A7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C80D6C2C2B9CDEED00F52112 /* FitHeightSheet in Frameworks */,
+				C8032B872C0736D1008C4A7E /* FitHeightSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C88FFD402B9CD6660020C812 = {
+		C8032B6B2C073672008C4A7E = {
 			isa = PBXGroup;
 			children = (
-				C88FFD4B2B9CD6660020C812 /* FitHeightSheetExample */,
-				C88FFD4A2B9CD6660020C812 /* Products */,
+				C8032B762C073672008C4A7E /* FitHeightSheetDemo */,
+				C8032B752C073672008C4A7E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C88FFD4A2B9CD6660020C812 /* Products */ = {
+		C8032B752C073672008C4A7E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C88FFD492B9CD6660020C812 /* FitHeightSheetExample.app */,
+				C8032B742C073672008C4A7E /* FitHeightSheetDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C88FFD4B2B9CD6660020C812 /* FitHeightSheetExample */ = {
+		C8032B762C073672008C4A7E /* FitHeightSheetDemo */ = {
 			isa = PBXGroup;
 			children = (
-				C88FFD4C2B9CD6660020C812 /* FitHeightSheetExampleApp.swift */,
-				C88FFD4E2B9CD6660020C812 /* ContentView.swift */,
-				C88FFD5D2B9CD89D0020C812 /* RegisterFormView.swift */,
-				C88FFD502B9CD6670020C812 /* Assets.xcassets */,
-				C88FFD522B9CD6670020C812 /* Preview Content */,
+				C8032B772C073672008C4A7E /* FitHeightSheetDemoApp.swift */,
+				C8032B792C073672008C4A7E /* ContentView.swift */,
+				C8032B7B2C073673008C4A7E /* Assets.xcassets */,
+				C8032B7D2C073673008C4A7E /* Preview Content */,
 			);
-			path = FitHeightSheetExample;
+			path = FitHeightSheetDemo;
 			sourceTree = "<group>";
 		};
-		C88FFD522B9CD6670020C812 /* Preview Content */ = {
+		C8032B7D2C073673008C4A7E /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C88FFD532B9CD6670020C812 /* Preview Assets.xcassets */,
+				C8032B7E2C073673008C4A7E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -75,42 +72,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C88FFD482B9CD6660020C812 /* FitHeightSheetExample */ = {
+		C8032B732C073672008C4A7E /* FitHeightSheetDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C88FFD572B9CD6670020C812 /* Build configuration list for PBXNativeTarget "FitHeightSheetExample" */;
+			buildConfigurationList = C8032B822C073673008C4A7E /* Build configuration list for PBXNativeTarget "FitHeightSheetDemo" */;
 			buildPhases = (
-				C88FFD452B9CD6660020C812 /* Sources */,
-				C88FFD462B9CD6660020C812 /* Frameworks */,
-				C88FFD472B9CD6660020C812 /* Resources */,
+				C8032B702C073672008C4A7E /* Sources */,
+				C8032B712C073672008C4A7E /* Frameworks */,
+				C8032B722C073672008C4A7E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FitHeightSheetExample;
+			name = FitHeightSheetDemo;
 			packageProductDependencies = (
-				C80D6C2B2B9CDEED00F52112 /* FitHeightSheet */,
+				C8032B862C0736D1008C4A7E /* FitHeightSheet */,
 			);
-			productName = FitHeightSheetExample;
-			productReference = C88FFD492B9CD6660020C812 /* FitHeightSheetExample.app */;
+			productName = FitHeightSheetDemo;
+			productReference = C8032B742C073672008C4A7E /* FitHeightSheetDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C88FFD412B9CD6660020C812 /* Project object */ = {
+		C8032B6C2C073672008C4A7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					C88FFD482B9CD6660020C812 = {
+					C8032B732C073672008C4A7E = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = C88FFD442B9CD6660020C812 /* Build configuration list for PBXProject "FitHeightSheetExample" */;
+			buildConfigurationList = C8032B6F2C073672008C4A7E /* Build configuration list for PBXProject "FitHeightSheetDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,46 +115,45 @@
 				en,
 				Base,
 			);
-			mainGroup = C88FFD402B9CD6660020C812;
+			mainGroup = C8032B6B2C073672008C4A7E;
 			packageReferences = (
-				C80D6C2A2B9CDEED00F52112 /* XCRemoteSwiftPackageReference "FitHeightSheet" */,
+				C8032B852C0736D1008C4A7E /* XCLocalSwiftPackageReference ".." */,
 			);
-			productRefGroup = C88FFD4A2B9CD6660020C812 /* Products */;
+			productRefGroup = C8032B752C073672008C4A7E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C88FFD482B9CD6660020C812 /* FitHeightSheetExample */,
+				C8032B732C073672008C4A7E /* FitHeightSheetDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C88FFD472B9CD6660020C812 /* Resources */ = {
+		C8032B722C073672008C4A7E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C88FFD542B9CD6670020C812 /* Preview Assets.xcassets in Resources */,
-				C88FFD512B9CD6670020C812 /* Assets.xcassets in Resources */,
+				C8032B7F2C073673008C4A7E /* Preview Assets.xcassets in Resources */,
+				C8032B7C2C073673008C4A7E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C88FFD452B9CD6660020C812 /* Sources */ = {
+		C8032B702C073672008C4A7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C88FFD4F2B9CD6660020C812 /* ContentView.swift in Sources */,
-				C88FFD4D2B9CD6660020C812 /* FitHeightSheetExampleApp.swift in Sources */,
-				C88FFD5E2B9CD89D0020C812 /* RegisterFormView.swift in Sources */,
+				C8032B7A2C073672008C4A7E /* ContentView.swift in Sources */,
+				C8032B782C073672008C4A7E /* FitHeightSheetDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C88FFD552B9CD6670020C812 /* Debug */ = {
+		C8032B802C073673008C4A7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -220,7 +216,7 @@
 			};
 			name = Debug;
 		};
-		C88FFD562B9CD6670020C812 /* Release */ = {
+		C8032B812C073673008C4A7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -276,14 +272,14 @@
 			};
 			name = Release;
 		};
-		C88FFD582B9CD6670020C812 /* Debug */ = {
+		C8032B832C073673008C4A7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FitHeightSheetExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FitHeightSheetDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -292,13 +288,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.FitHeightSheetExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.FitHeightSheetDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -306,14 +301,14 @@
 			};
 			name = Debug;
 		};
-		C88FFD592B9CD6670020C812 /* Release */ = {
+		C8032B842C073673008C4A7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FitHeightSheetExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FitHeightSheetDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -322,13 +317,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.FitHeightSheetExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.FitHeightSheetDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,44 +333,39 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C88FFD442B9CD6660020C812 /* Build configuration list for PBXProject "FitHeightSheetExample" */ = {
+		C8032B6F2C073672008C4A7E /* Build configuration list for PBXProject "FitHeightSheetDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C88FFD552B9CD6670020C812 /* Debug */,
-				C88FFD562B9CD6670020C812 /* Release */,
+				C8032B802C073673008C4A7E /* Debug */,
+				C8032B812C073673008C4A7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C88FFD572B9CD6670020C812 /* Build configuration list for PBXNativeTarget "FitHeightSheetExample" */ = {
+		C8032B822C073673008C4A7E /* Build configuration list for PBXNativeTarget "FitHeightSheetDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C88FFD582B9CD6670020C812 /* Debug */,
-				C88FFD592B9CD6670020C812 /* Release */,
+				C8032B832C073673008C4A7E /* Debug */,
+				C8032B842C073673008C4A7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		C80D6C2A2B9CDEED00F52112 /* XCRemoteSwiftPackageReference "FitHeightSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kyaw-codes/FitHeightSheet.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		C8032B852C0736D1008C4A7E /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C80D6C2B2B9CDEED00F52112 /* FitHeightSheet */ = {
+		C8032B862C0736D1008C4A7E /* FitHeightSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C80D6C2A2B9CDEED00F52112 /* XCRemoteSwiftPackageReference "FitHeightSheet" */;
 			productName = FitHeightSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = C88FFD412B9CD6660020C812 /* Project object */;
+	rootObject = C8032B6C2C073672008C4A7E /* Project object */;
 }
