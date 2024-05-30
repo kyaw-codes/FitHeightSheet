@@ -2,11 +2,15 @@ import SwiftUI
 import Combine
 
 extension View {
-  public func fitHeightSheet<Body: View>(isPresented: Binding<Bool>, @ViewBuilder _ body: @escaping () -> Body) -> some View {
+  public func fitHeightSheet<Body: View>(
+    isPresented: Binding<Bool>,
+    @ViewBuilder _ body: @escaping () -> Body
+  ) -> some View {
     modifier(FitHeightSheetModifire(isPresented: isPresented, body))
   }
 }
 
+// MARK: - Dismiss
 extension EnvironmentValues {
   public var fitHeightSheetDismiss: () -> () {
     get { self[FitHeightSheetDismissKey.self] }
@@ -22,6 +26,7 @@ struct FitHeightSheetDismissKey: EnvironmentKey {
   static let defaultValue: () -> () = { NotificationCenter.default.post(.init(name: .fitHeightSheetDismiss)) }
 }
 
+// MARK: - Modifire
 struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @Binding var isPresented: Bool
   @State private var offsetY = CGFloat.zero
@@ -62,9 +67,10 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
             Spacer(minLength: safeAreaTop + 40)
             
             body
+              .frame(maxWidth: .infinity)
               .background(
                 GeometryReader {
-                  Color.clear.preference(key: ContentHeightKey.self, value: $0.size.height)
+                  Color.white.preference(key: ContentHeightKey.self, value: $0.size.height)
                 }
               )
               .onPreferenceChange(ContentHeightKey.self) {
@@ -98,6 +104,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
                   }
               )
           }
+          .frame(maxWidth: .infinity)
           .transition(.move(edge: .bottom))
         }
       }

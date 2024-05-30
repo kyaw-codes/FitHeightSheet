@@ -28,7 +28,6 @@ struct ContentView: View {
         }
         .padding()
       }
-      .frame(maxWidth: .infinity)
       .background(Color.white)
     }
   }
