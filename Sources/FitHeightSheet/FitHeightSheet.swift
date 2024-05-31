@@ -33,7 +33,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @State private var contentHeight = CGFloat.zero
   @State private var keyboardHeight: CGFloat = 0
   
-  var body: Body
+  var body: () -> Body
   
   var safeAreaTop: CGFloat {
     UIApplication.shared.connectedScenes.filter { $0.activationState == .foregroundActive }.first(where: { $0 is UIWindowScene }).flatMap({ $0 as? UIWindowScene })?.windows.first(where: \.isKeyWindow)?.safeAreaInsets.top ?? 0
@@ -44,7 +44,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
     @ViewBuilder _ body: @escaping () -> Body
   ) {
     self._isPresented = isPresented
-    self.body = body()
+    self.body = body
   }
   
   func body(content: Content) -> some View {
@@ -66,7 +66,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           VStack(spacing: 0) {
             Spacer(minLength: safeAreaTop + 40)
             
-            body
+            body()
               .frame(maxWidth: .infinity)
               .background(
                 GeometryReader {
