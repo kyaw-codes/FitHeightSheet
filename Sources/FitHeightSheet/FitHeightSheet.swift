@@ -70,7 +70,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
               .frame(maxWidth: .infinity)
               .background(
                 GeometryReader {
-                  Color.white.preference(key: ContentHeightKey.self, value: $0.size.height)
+                  Color.clear.preference(key: ContentHeightKey.self, value: $0.size.height)
                 }
               )
               .onPreferenceChange(ContentHeightKey.self) {
@@ -109,7 +109,6 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
         }
       }
       .zIndex(1)
-      .ignoresSafeArea()
     }
     .onReceive(NotificationCenter.default.publisher(for: .fitHeightSheetDismiss)) { _ in
       withAnimation {
