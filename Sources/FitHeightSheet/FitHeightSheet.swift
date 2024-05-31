@@ -4,9 +4,18 @@ import Combine
 extension View {
   public func fitHeightSheet<Body: View>(
     isPresented: Binding<Bool>,
+    backdropColor: Color = .black,
+    backdropOpacity: CGFloat = 0.5,
     @ViewBuilder _ body: @escaping () -> Body
   ) -> some View {
-    modifier(FitHeightSheetModifire(isPresented: isPresented, body))
+    modifier(
+      FitHeightSheetModifire(
+        isPresented: isPresented,
+        backdropColor: backdropColor,
+        backdropOpacity: backdropOpacity,
+        body
+      )
+    )
   }
 }
 
@@ -33,6 +42,9 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @State private var contentHeight = CGFloat.zero
   @State private var keyboardHeight: CGFloat = 0
   
+  private let backdropColor: Color
+  private let backdropOpacity: CGFloat
+  
   var body: () -> Body
   
   var safeAreaTop: CGFloat {
@@ -41,9 +53,13 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   
   init(
     isPresented: Binding<Bool>,
+    backdropColor: Color,
+    backdropOpacity: CGFloat,
     @ViewBuilder _ body: @escaping () -> Body
   ) {
     self._isPresented = isPresented
+    self.backdropColor = backdropColor
+    self.backdropOpacity = backdropOpacity
     self.body = body
   }
   
@@ -54,7 +70,9 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
       
       ZStack {
         // Backdrop view
-        Color.black.opacity(isPresented ? 0.5 : 0)
+        Rectangle()
+          .fill(backdropColor)
+          .opacity(isPresented ? 0.5 : 0)
           .ignoresSafeArea()
           .onTapGesture {
             withAnimation {
@@ -108,7 +126,6 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           .transition(.move(edge: .bottom))
         }
       }
-      .zIndex(1)
     }
     .onReceive(NotificationCenter.default.publisher(for: .fitHeightSheetDismiss)) { _ in
       withAnimation {
