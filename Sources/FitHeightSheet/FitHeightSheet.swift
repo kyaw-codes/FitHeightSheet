@@ -162,7 +162,6 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
     .onChange(of: dragVelocity) { _ in
       guard isPresented else { return }
       if dragVelocity > 3000 {
-        print(dragVelocity)
 
         isPresented = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
