@@ -45,7 +45,6 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @State private var dragVelocity = CGFloat.zero
   @State private var offsetY = CGFloat.zero
   @State private var contentHeight = CGFloat.zero
-  @State private var keyboardHeight: CGFloat = 0
   
   private let backdropColor: Color
   private let backdropOpacity: CGFloat
@@ -121,12 +120,6 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
             self.offsetY = offsetY - height
           }
           .offset(y: max(0, dragOffsetY))
-          .padding(.bottom, keyboardHeight > 0 ? keyboardHeight : 0)
-          .onReceive(Publishers.keyboardHeight) { height in
-            withAnimation(isPresented ? .smooth : .bouncy) {
-              self.keyboardHeight = height
-            }
-          }
           .gesture(
             DragGesture(minimumDistance: 5)
               .onChanged { value in
@@ -191,24 +184,4 @@ private struct OffsetYKey: PreferenceKey {
   static var defaultValue: CGFloat = .zero
   
   static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
-}
-
-extension Publishers {
-  
-  static var keyboardHeight: AnyPublisher<CGFloat, Never> {
-    let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
-      .map { $0.keyboardHeight }
-    
-    let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
-      .map { _ in CGFloat(0) }
-    
-    return MergeMany(willShow, willHide)
-      .eraseToAnyPublisher()
-  }
-}
-
-extension Notification {
-  var keyboardHeight: CGFloat {
-    return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
-  }
 }
