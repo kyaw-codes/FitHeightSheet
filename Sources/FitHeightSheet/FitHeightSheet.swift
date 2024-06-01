@@ -86,21 +86,23 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
         .zIndex(1)
       
       // Backdrop view
-      Rectangle()
-        .fill(backdropColor)
-        .opacity(calculateOpacity())
-        .ignoresSafeArea()
-        .allowsHitTesting(internalPresented)
-        .onTapGesture {
-          withAnimation(isPresented ? .smooth : .bouncy) {
-            isPresented.toggle()
+      if internalPresented {
+        Rectangle()
+          .fill(backdropColor)
+          .opacity(calculateOpacity())
+          .ignoresSafeArea()
+          .allowsHitTesting(internalPresented)
+          .onTapGesture {
+            withAnimation(isPresented ? .smooth : .bouncy) {
+              isPresented.toggle()
+            }
           }
-        }
-        .zIndex(3)
+          .zIndex(3)
+          .transition(.opacity)
+      }
       
       if internalPresented {
         body()
-          .opacity(isPresented ? 1 : 0)
           .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
           .padding(.top, topContentInset)
           .background(
@@ -146,7 +148,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
               }
           )
           .zIndex(3)
-          .transition(.move(edge: .bottom))
+          .transition(.move(edge: .bottom).combined(with: .opacity))
       }
     }
     .onChange(of: isPresented) { _ in
