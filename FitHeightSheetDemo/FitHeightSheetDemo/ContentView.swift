@@ -29,7 +29,7 @@ struct ContentView: View {
       }
       .scrollContentBackground(.hidden)
     }
-    .fitHeightSheet(isPresented: $showSheet) {
+    .fitHeightSheet(isPresented: $showSheet, onDismiss: { print("Yoo")}) {
       SheetView()
     }
   }

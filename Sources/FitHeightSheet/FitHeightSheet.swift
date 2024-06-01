@@ -7,6 +7,7 @@ extension View {
     backdropColor: Color = .black,
     backdropOpacity: CGFloat = 0.5,
     topContentInset: CGFloat = 40,
+    onDismiss: (() -> Void)? = nil,
     @ViewBuilder _ body: @escaping () -> Body
   ) -> some View {
     modifier(
@@ -15,6 +16,7 @@ extension View {
         backdropColor: backdropColor,
         backdropOpacity: backdropOpacity,
         topContentInset: topContentInset,
+        onDismiss: onDismiss,
         body
       )
     )
@@ -51,6 +53,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   private let topContentInset: CGFloat
   
   private var body: () -> Body
+  private var onDismiss: (() -> Void)?
   
   private var safeAreaTop: CGFloat {
     UIApplication.shared.connectedScenes
@@ -71,12 +74,14 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
     backdropColor: Color,
     backdropOpacity: CGFloat,
     topContentInset: CGFloat,
+    onDismiss: (() -> Void)?,
     @ViewBuilder _ body: @escaping () -> Body
   ) {
     self._isPresented = isPresented
     self.backdropColor = backdropColor
     self.backdropOpacity = backdropOpacity
     self.topContentInset = topContentInset
+    self.onDismiss = onDismiss
     self.body = body
   }
   
@@ -148,6 +153,9 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
       }
     }
     .onChange(of: isPresented) { _ in
+      if !isPresented {
+        onDismiss?()
+      }
       withAnimation(isPresented ? .smooth : .bouncy) {
         internalPresented = isPresented
       }
