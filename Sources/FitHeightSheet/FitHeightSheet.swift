@@ -88,7 +88,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
       // Backdrop view
       Rectangle()
         .fill(backdropColor)
-        .opacity(internalPresented ? 0.5 : 0)
+        .opacity(calculateOpacity())
         .ignoresSafeArea()
         .allowsHitTesting(internalPresented)
         .onTapGesture {
@@ -140,6 +140,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
                 } else {
                   withAnimation(isPresented ? .smooth : .bouncy) {
                     dragOffsetY = 0
+                    offsetY = 0
                   }
                 }
               }
@@ -158,6 +159,10 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
         isPresented = false
       }
     }
+  }
+  
+  private func calculateOpacity() -> CGFloat {
+    backdropOpacity - ((offsetY / min(contentHeight, availableContentHeight)) * 0.9)
   }
 }
 
