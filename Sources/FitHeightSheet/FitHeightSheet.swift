@@ -42,6 +42,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @Binding var isPresented: Bool
   @State private var internalPresented: Bool = false
   @State private var dragOffsetY = CGFloat.zero
+  @State private var dragVelocity = CGFloat.zero
   @State private var offsetY = CGFloat.zero
   @State private var contentHeight = CGFloat.zero
   @State private var keyboardHeight: CGFloat = 0
@@ -130,8 +131,10 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
             DragGesture(minimumDistance: 5)
               .onChanged { value in
                 dragOffsetY = value.translation.height
+                dragVelocity = value.velocity.height
               }
               .onEnded { value in
+                guard dragVelocity < 3000 else { return }
                 if offsetY > (contentHeight * 0.5) {
                   withAnimation(isPresented ? .smooth : .bouncy) {
                     isPresented.toggle()
@@ -154,6 +157,17 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
     .onChange(of: isPresented) { _ in
       withAnimation(isPresented ? .smooth : .bouncy) {
         internalPresented = isPresented
+      }
+    }
+    .onChange(of: dragVelocity) { _ in
+      guard isPresented else { return }
+      if dragVelocity > 3000 {
+        print(dragVelocity)
+
+        isPresented = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+          dragOffsetY = 0
+        }
       }
     }
     .onReceive(NotificationCenter.default.publisher(for: .fitHeightSheetDismiss)) { _ in
