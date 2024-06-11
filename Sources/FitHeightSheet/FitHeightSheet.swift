@@ -99,7 +99,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           .allowsHitTesting(internalPresented)
           .onTapGesture {
             withAnimation(isPresented ? .smooth : .bouncy) {
-              isPresented.toggle()
+              isPresented = false
             }
           }
           .zIndex(3)
@@ -129,10 +129,10 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
             DragGesture(minimumDistance: 5)
               .onChanged { value in
                 dragOffsetY = value.translation.height
-                dragVelocity = value.velocity.height
+//                dragVelocity = value.velocity.height
               }
               .onEnded { value in
-                guard dragVelocity < 3000 else { return }
+//                guard dragVelocity < 3000 else { return }
                 if offsetY > (contentHeight * 0.5) {
                   withAnimation(isPresented ? .smooth : .bouncy) {
                     isPresented.toggle()
@@ -160,16 +160,16 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
         internalPresented = isPresented
       }
     }
-    .onChange(of: dragVelocity) { _ in
-      guard isPresented else { return }
-      if dragVelocity > 3000 {
-
-        isPresented = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-          dragOffsetY = 0
-        }
-      }
-    }
+//    .onChange(of: dragVelocity) { _ in
+//      guard isPresented else { return }
+//      if dragVelocity > 3000 {
+//
+//        isPresented = false
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//          dragOffsetY = 0
+//        }
+//      }
+//    }
     .onReceive(NotificationCenter.default.publisher(for: .fitHeightSheetDismiss)) { _ in
       withAnimation(isPresented ? .smooth : .bouncy) {
         isPresented = false
