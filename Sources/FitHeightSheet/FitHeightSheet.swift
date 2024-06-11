@@ -154,6 +154,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
     }
     .onChange(of: isPresented) { _ in
       if !isPresented {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         onDismiss?()
       }
       withAnimation(isPresented ? .smooth : .bouncy) {
