@@ -5,6 +5,8 @@ extension View {
   public func fitHeightSheet<Body: View>(
     isPresented: Binding<Bool>,
     backdropStyle: BackdropStyle = .default,
+    presentAnimation: AnimationConfiguration = .init(animation: .smooth),
+    dismissAnimation: AnimationConfiguration = .init(animation: .bouncy),
     topContentInset: CGFloat = 40,
     onDismiss: (() -> Void)? = nil,
     @ViewBuilder _ body: @escaping () -> Body
@@ -13,6 +15,8 @@ extension View {
       FitHeightSheetModifire(
         isPresented: isPresented,
         backdropStyle: backdropStyle,
+        presentAnimation: presentAnimation,
+        dismissAnimation: dismissAnimation,
         topContentInset: topContentInset,
         onDismiss: onDismiss,
         body
@@ -48,6 +52,8 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   
   private let backdropColor: Color
   private let backdropOpacity: CGFloat
+  private let presentAnimation: AnimationConfiguration
+  private let dismissAnimation: AnimationConfiguration
   private let topContentInset: CGFloat
   
   private var body: () -> Body
@@ -70,6 +76,8 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   init(
     isPresented: Binding<Bool>,
     backdropStyle: BackdropStyle,
+    presentAnimation: AnimationConfiguration,
+    dismissAnimation: AnimationConfiguration,
     topContentInset: CGFloat,
     onDismiss: (() -> Void)?,
     @ViewBuilder _ body: @escaping () -> Body
@@ -77,6 +85,8 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
     self._isPresented = isPresented
     self.backdropColor = backdropStyle.color
     self.backdropOpacity = backdropStyle.opacity
+    self.presentAnimation = presentAnimation
+    self.dismissAnimation = dismissAnimation
     self.topContentInset = topContentInset
     self.onDismiss = onDismiss
     self.body = body
@@ -95,7 +105,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           .ignoresSafeArea()
           .allowsHitTesting(internalPresented)
           .onTapGesture {
-            withAnimation(isPresented ? .smooth : .bouncy) {
+            withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
               isPresented = false
             }
           }
@@ -131,14 +141,14 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
               .onEnded { value in
 //                guard dragVelocity < 3000 else { return }
                 if offsetY > (contentHeight * 0.5) {
-                  withAnimation(isPresented ? .smooth : .bouncy) {
+                  withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
                     isPresented.toggle()
                   }
                   DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     dragOffsetY = 0
                   }
                 } else {
-                  withAnimation(isPresented ? .smooth : .bouncy) {
+                  withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
                     dragOffsetY = 0
                     offsetY = 0
                   }
@@ -154,7 +164,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         onDismiss?()
       }
-      withAnimation(isPresented ? .smooth : .bouncy) {
+      withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
         internalPresented = isPresented
       }
     }
@@ -169,7 +179,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
 //      }
 //    }
     .onReceive(NotificationCenter.default.publisher(for: .fitHeightSheetDismiss)) { _ in
-      withAnimation(isPresented ? .smooth : .bouncy) {
+      withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
         isPresented = false
       }
     }
