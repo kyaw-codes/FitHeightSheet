@@ -9,7 +9,7 @@ extension View {
     dismissAnimation: AnimationConfiguration = .init(animation: .bouncy),
     topContentInset: CGFloat = 40,
     onDismiss: (() -> Void)? = nil,
-    @ViewBuilder _ body: @escaping () -> Body
+    @ViewBuilder content: @escaping () -> Body
   ) -> some View {
     modifier(
       FitHeightSheetModifire(
@@ -19,7 +19,7 @@ extension View {
         dismissAnimation: dismissAnimation,
         topContentInset: topContentInset,
         onDismiss: onDismiss,
-        body
+        content
       )
     )
   }
