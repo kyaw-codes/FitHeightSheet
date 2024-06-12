@@ -4,8 +4,7 @@ import Combine
 extension View {
   public func fitHeightSheet<Body: View>(
     isPresented: Binding<Bool>,
-    backdropColor: Color = .black,
-    backdropOpacity: CGFloat = 0.5,
+    backdropStyle: BackdropStyle = .default,
     topContentInset: CGFloat = 40,
     onDismiss: (() -> Void)? = nil,
     @ViewBuilder _ body: @escaping () -> Body
@@ -13,8 +12,7 @@ extension View {
     modifier(
       FitHeightSheetModifire(
         isPresented: isPresented,
-        backdropColor: backdropColor,
-        backdropOpacity: backdropOpacity,
+        backdropStyle: backdropStyle,
         topContentInset: topContentInset,
         onDismiss: onDismiss,
         body
@@ -71,15 +69,14 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   
   init(
     isPresented: Binding<Bool>,
-    backdropColor: Color,
-    backdropOpacity: CGFloat,
+    backdropStyle: BackdropStyle,
     topContentInset: CGFloat,
     onDismiss: (() -> Void)?,
     @ViewBuilder _ body: @escaping () -> Body
   ) {
     self._isPresented = isPresented
-    self.backdropColor = backdropColor
-    self.backdropOpacity = backdropOpacity
+    self.backdropColor = backdropStyle.color
+    self.backdropOpacity = backdropStyle.opacity
     self.topContentInset = topContentInset
     self.onDismiss = onDismiss
     self.body = body
