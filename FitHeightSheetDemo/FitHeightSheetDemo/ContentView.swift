@@ -10,39 +10,47 @@ import FitHeightSheet
 
 struct MainView: View {
   @State private var currentTab = 0
+  @State private var showSheet = false
+  
   var body: some View {
     TabView(selection: $currentTab) {
-      ContentView()
+      ContentView($showSheet)
         .tag(0)
         .tabItem {
           Label("Home", systemImage: "house")
         }
       
-      ContentView()
+      Text("Profile")
         .tag(0)
         .tabItem {
           Label("Profile", systemImage: "person")
         }
       
-      ContentView()
+      Text("Search")
         .tag(0)
         .tabItem {
           Label("Search", systemImage: "magnifyingglass")
         }
       
-      ContentView()
+      Text("Settings")
         .tag(0)
         .tabItem {
           Label("Settings", systemImage: "gear")
         }
     }
+    .fitHeightSheet(isPresented: $showSheet, onDismiss: { print("Yoo")}) {
+      SheetView()
+    }
   }
 }
 
 struct ContentView: View {
-  @Environment(\.fitHeightSheetDismiss) private var dismiss
-  @State private var showSheet = false
+  @Binding private var showSheet: Bool
   @State private var text = ""
+  
+  init(_ showSheet: Binding<Bool>) {
+    self._showSheet = showSheet
+  }
   
   var body: some View {
     NavigationStack {
@@ -61,18 +69,20 @@ struct ContentView: View {
       }
       .scrollContentBackground(.hidden)
     }
-    .fitHeightSheet(isPresented: $showSheet, onDismiss: { print("Yoo")}) {
-      SheetView()
-    }
+    
   }
+}
+
+struct SheetView: View {
+  @Environment(\.fitHeightSheetDismiss) private var dismiss
   
-  @ViewBuilder
-  private func SheetView() -> some View {
+  
+  var body: some View {
     VStack(alignment: .leading, spacing: 12) {
       Text("Hello there 👋")
         .font(.title.bold())
       
-//      TextField("Type something here...", text: $text)
+      //      TextField("Type something here...", text: $text)
       Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.")
       
       Button {
@@ -93,6 +103,7 @@ struct ContentView: View {
     .padding()
     .frame(maxWidth: .infinity)
     .background(.regularMaterial)
+    
   }
 }
 
