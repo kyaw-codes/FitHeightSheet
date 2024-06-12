@@ -2,14 +2,14 @@ import SwiftUI
 import Combine
 
 extension View {
-  public func fitHeightSheet<Content: View>(
+  public func fitHeightSheet<Body: View>(
     isPresented: Binding<Bool>,
     backdropStyle: BackdropStyle = .default,
     presentAnimation: AnimationConfiguration = .init(animation: .smooth),
     dismissAnimation: AnimationConfiguration = .init(animation: .bouncy),
     topContentInset: CGFloat = 40,
     onDismiss: (() -> Void)? = nil,
-    @ViewBuilder _ content: @escaping () -> Content
+    @ViewBuilder _ body: @escaping () -> Body
   ) -> some View {
     modifier(
       FitHeightSheetModifire(
@@ -19,7 +19,7 @@ extension View {
         dismissAnimation: dismissAnimation,
         topContentInset: topContentInset,
         onDismiss: onDismiss,
-        content
+        body
       )
     )
   }
@@ -42,7 +42,7 @@ struct FitHeightSheetDismissKey: EnvironmentKey {
 }
 
 // MARK: - Modifire
-struct FitHeightSheetModifire<Content: View>: ViewModifier {
+struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @Binding var isPresented: Bool
   @State private var internalPresented: Bool = false
   @State private var dragOffsetY = CGFloat.zero
@@ -56,7 +56,7 @@ struct FitHeightSheetModifire<Content: View>: ViewModifier {
   private let dismissAnimation: AnimationConfiguration
   private let topContentInset: CGFloat
   
-  private var content: () -> Content
+  private var body: () -> Body
   private var onDismiss: (() -> Void)?
   
   private var safeAreaTop: CGFloat {
@@ -80,7 +80,7 @@ struct FitHeightSheetModifire<Content: View>: ViewModifier {
     dismissAnimation: AnimationConfiguration,
     topContentInset: CGFloat,
     onDismiss: (() -> Void)?,
-    @ViewBuilder _ content: @escaping () -> Content
+    @ViewBuilder _ body: @escaping () -> Body
   ) {
     self._isPresented = isPresented
     self.backdropColor = backdropStyle.color
@@ -89,7 +89,7 @@ struct FitHeightSheetModifire<Content: View>: ViewModifier {
     self.dismissAnimation = dismissAnimation
     self.topContentInset = topContentInset
     self.onDismiss = onDismiss
-    self.content = content
+    self.body = body
   }
   
   func body(content: Content) -> some View {
@@ -114,7 +114,7 @@ struct FitHeightSheetModifire<Content: View>: ViewModifier {
       }
       
       if internalPresented {
-        self.content()
+        body()
           .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
           .padding(.top, topContentInset)
           .background(
