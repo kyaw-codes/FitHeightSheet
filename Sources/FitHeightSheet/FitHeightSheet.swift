@@ -87,7 +87,6 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           .fill(backdropColor)
           .opacity(calculateOpacity())
           .ignoresSafeArea()
-          .allowsHitTesting(internalPresented)
           .onTapGesture {
             withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
               isPresented = false
