@@ -38,7 +38,7 @@ struct MainView: View {
           Label("Settings", systemImage: "gear")
         }
     }
-    .fitHeightSheet(isPresented: $showSheet, onDismiss: { print("Yoo")}) {
+    .fitHeightSheet(isPresented: $showSheet) {
       SheetView()
     }
   }

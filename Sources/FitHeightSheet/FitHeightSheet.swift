@@ -30,7 +30,6 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @Binding var isPresented: Bool
   @State private var internalPresented: Bool = false
   @State private var dragOffsetY = CGFloat.zero
-  @State private var dragVelocity = CGFloat.zero
   @State private var offsetY = CGFloat.zero
   @State private var contentHeight = CGFloat.zero
   
@@ -55,6 +54,28 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   
   private var availableContentHeight: CGFloat {
     UIScreen.main.bounds.height - topContentInset - safeAreaTop
+  }
+  
+  private var gesture: some Gesture {
+    DragGesture(minimumDistance: 5)
+      .onChanged { value in
+        dragOffsetY = value.translation.height
+      }
+      .onEnded { value in
+        if offsetY > (contentHeight * 0.5) {
+          withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
+            isPresented.toggle()
+          }
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            dragOffsetY = 0
+          }
+        } else {
+          withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
+            dragOffsetY = 0
+            offsetY = 0
+          }
+        }
+      }
   }
   
   init(
@@ -87,6 +108,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           .fill(backdropColor)
           .opacity(calculateOpacity())
           .ignoresSafeArea()
+          .allowsHitTesting(internalPresented)
           .onTapGesture {
             withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
               isPresented = false
@@ -115,56 +137,28 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
             self.offsetY = offsetY - height
           }
           .offset(y: max(0, dragOffsetY))
-          .gesture(
-            DragGesture(minimumDistance: 5)
-              .onChanged { value in
-                dragOffsetY = value.translation.height
-//                dragVelocity = value.velocity.height
-              }
-              .onEnded { value in
-//                guard dragVelocity < 3000 else { return }
-                if offsetY > (contentHeight * 0.5) {
-                  withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
-                    isPresented.toggle()
-                  }
-                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    dragOffsetY = 0
-                  }
-                } else {
-                  withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
-                    dragOffsetY = 0
-                    offsetY = 0
-                  }
-                }
-              }
-          )
+          .gesture(gesture)
           .zIndex(3)
           .transition(.move(edge: .bottom).combined(with: .opacity))
       }
     }
     .onChange(of: isPresented) { _ in
-      if !isPresented {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        onDismiss?()
-      }
-      withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
-        internalPresented = isPresented
-      }
+      onChangeOfIsPresented()
     }
-//    .onChange(of: dragVelocity) { _ in
-//      guard isPresented else { return }
-//      if dragVelocity > 3000 {
-//
-//        isPresented = false
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//          dragOffsetY = 0
-//        }
-//      }
-//    }
     .onReceive(NotificationCenter.default.publisher(for: .fitHeightSheetDismiss)) { _ in
       withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
         isPresented = false
       }
+    }
+  }
+  
+  private func onChangeOfIsPresented() {
+    if !isPresented {
+      UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+      onDismiss?()
+    }
+    withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
+      internalPresented = isPresented
     }
   }
   
