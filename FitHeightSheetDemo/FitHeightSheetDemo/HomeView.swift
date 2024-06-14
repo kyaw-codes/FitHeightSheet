@@ -13,7 +13,7 @@ struct HomeView: View {
       List {
         Section("Simple usage") {
           NavigationLink(".fitHeightSheet(isPresented:content:)") {
-            
+            SheetPresentationWithBoolView()
           }
         }
       }

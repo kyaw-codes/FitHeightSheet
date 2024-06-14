@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C8032B782C073672008C4A7E /* FitHeightSheetDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B772C073672008C4A7E /* FitHeightSheetDemoApp.swift */; };
-		C8032B7A2C073672008C4A7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B792C073672008C4A7E /* ContentView.swift */; };
+		C8032B7A2C073672008C4A7E /* SheetPresentationWithBoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B792C073672008C4A7E /* SheetPresentationWithBoolView.swift */; };
 		C8032B7C2C073673008C4A7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8032B7B2C073673008C4A7E /* Assets.xcassets */; };
 		C8032B7F2C073673008C4A7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8032B7E2C073673008C4A7E /* Preview Assets.xcassets */; };
 		C8032B872C0736D1008C4A7E /* FitHeightSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C8032B862C0736D1008C4A7E /* FitHeightSheet */; };
 		C87D1A092C1CA1C50099953D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A082C1CA1C50099953D /* HomeView.swift */; };
+		C87D1A0B2C1CAD110099953D /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A0A2C1CAD110099953D /* SheetView.swift */; };
+		C87D1A0D2C1CAD830099953D /* SheetWithTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A0C2C1CAD830099953D /* SheetWithTabView.swift */; };
+		C87D1A0F2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A0E2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C8032B742C073672008C4A7E /* FitHeightSheetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitHeightSheetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8032B772C073672008C4A7E /* FitHeightSheetDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitHeightSheetDemoApp.swift; sourceTree = "<group>"; };
-		C8032B792C073672008C4A7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C8032B792C073672008C4A7E /* SheetPresentationWithBoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentationWithBoolView.swift; sourceTree = "<group>"; };
 		C8032B7B2C073673008C4A7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8032B7E2C073673008C4A7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C87D1A082C1CA1C50099953D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C87D1A0A2C1CAD110099953D /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		C87D1A0C2C1CAD830099953D /* SheetWithTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithTabView.swift; sourceTree = "<group>"; };
+		C87D1A0E2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentationWithOptionalValueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,10 @@
 			children = (
 				C8032B772C073672008C4A7E /* FitHeightSheetDemoApp.swift */,
 				C87D1A082C1CA1C50099953D /* HomeView.swift */,
-				C8032B792C073672008C4A7E /* ContentView.swift */,
+				C8032B792C073672008C4A7E /* SheetPresentationWithBoolView.swift */,
+				C87D1A0E2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift */,
+				C87D1A0C2C1CAD830099953D /* SheetWithTabView.swift */,
+				C87D1A0A2C1CAD110099953D /* SheetView.swift */,
 				C8032B7B2C073673008C4A7E /* Assets.xcassets */,
 				C8032B7D2C073673008C4A7E /* Preview Content */,
 			);
@@ -149,7 +158,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C87D1A092C1CA1C50099953D /* HomeView.swift in Sources */,
-				C8032B7A2C073672008C4A7E /* ContentView.swift in Sources */,
+				C87D1A0D2C1CAD830099953D /* SheetWithTabView.swift in Sources */,
+				C87D1A0F2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift in Sources */,
+				C8032B7A2C073672008C4A7E /* SheetPresentationWithBoolView.swift in Sources */,
+				C87D1A0B2C1CAD110099953D /* SheetView.swift in Sources */,
 				C8032B782C073672008C4A7E /* FitHeightSheetDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
