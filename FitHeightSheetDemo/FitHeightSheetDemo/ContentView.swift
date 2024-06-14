@@ -46,27 +46,23 @@ struct MainView: View {
 }
  */
 
-struct Str: Identifiable, ExpressibleByStringLiteral {
-  var text: String
+struct EmojiWrapper: Identifiable, ExpressibleByStringLiteral {
+  var emoji: String
   var id = UUID()
   
   init(stringLiteral value: StringLiteralType) {
-    text = value
+    emoji = value
   }
 }
 
 struct ContentView: View {
-  @State private var text: Str?
-  
-//  init(_ showSheet: Binding<Bool>) {
-//    self._showSheet = showSheet
-//  }
+  @State private var emoji: EmojiWrapper?
   
   var body: some View {
     NavigationStack {
       List {
         Button("Show sheet") {
-          text = "Hello there 👋"
+          emoji = "🎉"
         }
       }
       .navigationTitle("FitHeightSheet")
@@ -78,63 +74,24 @@ struct ContentView: View {
         .ignoresSafeArea()
       }
       .scrollContentBackground(.hidden)
-//      .fitHeightSheet(item: $text) { item in
-//        Text("\(item)")
-//      }
-      .fitHeightSheet(item: $text) { text in
-        AnotherSheetView(title: text.text)
+      .fitHeightSheet(item: $emoji) { emoji in
+        SheetView(emoji: emoji.emoji)
       }
     }
-    
-  }
-}
-
-struct AnotherSheetView: View {
-  @Environment(\.fitHeightSheetDismiss) private var dismiss
-  
-  var title: String
-  
-  var body: some View {
-    VStack(alignment: .leading, spacing: 12) {
-      Text(title)
-        .font(.title.bold())
-      
-      //      TextField("Type something here...", text: $text)
-      Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.")
-      
-      Button {
-        dismiss()
-      } label: {
-        Text("Dismiss")
-          .font(.headline)
-          .frame(maxWidth: .infinity, alignment: .center)
-          .padding()
-          .background {
-            RoundedRectangle(cornerRadius: 8)
-              .fill(.blue)
-          }
-          .foregroundStyle(.white)
-      }
-      .padding(.top)
-    }
-    .padding()
-    .frame(maxWidth: .infinity)
-    .background(.regularMaterial)
     
   }
 }
 
 struct SheetView: View {
   @Environment(\.fitHeightSheetDismiss) private var dismiss
-  
+  var emoji: String?
   
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
-      Text("Hello there 👋")
+      Text("Hello there \(emoji ?? "👋")")
         .font(.title.bold())
       
-      //      TextField("Type something here...", text: $text)
-      Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.")
+      Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl.")
       
       Button {
         dismiss()

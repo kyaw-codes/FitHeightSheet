@@ -12,6 +12,7 @@
 		C8032B7C2C073673008C4A7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8032B7B2C073673008C4A7E /* Assets.xcassets */; };
 		C8032B7F2C073673008C4A7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8032B7E2C073673008C4A7E /* Preview Assets.xcassets */; };
 		C8032B872C0736D1008C4A7E /* FitHeightSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C8032B862C0736D1008C4A7E /* FitHeightSheet */; };
+		C87D1A092C1CA1C50099953D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A082C1CA1C50099953D /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		C8032B792C073672008C4A7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C8032B7B2C073673008C4A7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8032B7E2C073673008C4A7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C87D1A082C1CA1C50099953D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				C8032B772C073672008C4A7E /* FitHeightSheetDemoApp.swift */,
+				C87D1A082C1CA1C50099953D /* HomeView.swift */,
 				C8032B792C073672008C4A7E /* ContentView.swift */,
 				C8032B7B2C073673008C4A7E /* Assets.xcassets */,
 				C8032B7D2C073673008C4A7E /* Preview Content */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C87D1A092C1CA1C50099953D /* HomeView.swift in Sources */,
 				C8032B7A2C073672008C4A7E /* ContentView.swift in Sources */,
 				C8032B782C073672008C4A7E /* FitHeightSheetDemoApp.swift in Sources */,
 			);
