@@ -8,6 +8,7 @@
 import SwiftUI
 import FitHeightSheet
 
+/*
 struct MainView: View {
   @State private var currentTab = 0
   @State private var showSheet = false
@@ -43,20 +44,29 @@ struct MainView: View {
     }
   }
 }
+ */
+
+struct Str: Identifiable, ExpressibleByStringLiteral {
+  var text: String
+  var id = UUID()
+  
+  init(stringLiteral value: StringLiteralType) {
+    text = value
+  }
+}
 
 struct ContentView: View {
-  @Binding private var showSheet: Bool
-  @State private var text = ""
+  @State private var text: Str?
   
-  init(_ showSheet: Binding<Bool>) {
-    self._showSheet = showSheet
-  }
+//  init(_ showSheet: Binding<Bool>) {
+//    self._showSheet = showSheet
+//  }
   
   var body: some View {
     NavigationStack {
       List {
         Button("Show sheet") {
-          showSheet.toggle()
+          text = "Hello there 👋"
         }
       }
       .navigationTitle("FitHeightSheet")
@@ -68,7 +78,48 @@ struct ContentView: View {
         .ignoresSafeArea()
       }
       .scrollContentBackground(.hidden)
+//      .fitHeightSheet(item: $text) { item in
+//        Text("\(item)")
+//      }
+      .fitHeightSheet(item: $text) { text in
+        AnotherSheetView(title: text.text)
+      }
     }
+    
+  }
+}
+
+struct AnotherSheetView: View {
+  @Environment(\.fitHeightSheetDismiss) private var dismiss
+  
+  var title: String
+  
+  var body: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      Text(title)
+        .font(.title.bold())
+      
+      //      TextField("Type something here...", text: $text)
+      Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius consectetur pellentesque. Praesent ornare velit sit amet lectus egestas, vitae condimentum ex tincidunt. Proin ut tincidunt nisl. Suspendisse sapien quam, vulputate eu vestibulum in, sagittis in sem. Suspendisse nibh ante.")
+      
+      Button {
+        dismiss()
+      } label: {
+        Text("Dismiss")
+          .font(.headline)
+          .frame(maxWidth: .infinity, alignment: .center)
+          .padding()
+          .background {
+            RoundedRectangle(cornerRadius: 8)
+              .fill(.blue)
+          }
+          .foregroundStyle(.white)
+      }
+      .padding(.top)
+    }
+    .padding()
+    .frame(maxWidth: .infinity)
+    .background(.regularMaterial)
     
   }
 }
@@ -108,5 +159,5 @@ struct SheetView: View {
 }
 
 #Preview {
-  MainView()
+  ContentView()
 }
