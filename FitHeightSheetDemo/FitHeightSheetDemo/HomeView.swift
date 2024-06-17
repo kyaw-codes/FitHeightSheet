@@ -15,6 +15,10 @@ struct HomeView: View {
           NavigationLink(".fitHeightSheet(isPresented:content:)") {
             SheetPresentationWithBoolView()
           }
+          
+          NavigationLink(".fitHeightSheet(item:content:)") {
+            
+          }
         }
       }
       .navigationTitle("FitHeightSheet Demo")

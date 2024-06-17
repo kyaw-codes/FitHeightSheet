@@ -15,3 +15,33 @@ struct EmojiWrapper: Identifiable, ExpressibleByStringLiteral {
     emoji = value
   }
 }
+
+struct SheetPresentationWithOptionalValueView: View {
+  @State private var emoji: EmojiWrapper?
+  
+  var body: some View {
+    NavigationStack {
+      List {
+        Button("Show sheet") {
+          emoji = "🎉"
+        }
+      }
+      .navigationTitle("FitHeightSheet")
+      .navigationBarTitleDisplayMode(.inline)
+      .background {
+        LinearGradient(
+          colors: [.blue, .cyan, .cyan, .yellow], startPoint: .top, endPoint: .bottom
+        )
+        .ignoresSafeArea()
+      }
+      .scrollContentBackground(.hidden)
+      .fitHeightSheet(item: $emoji) {
+        SheetView(emoji: $0.emoji)
+      }
+    }
+  }
+}
+
+#Preview {
+  SheetPresentationWithOptionalValueView()
+}
