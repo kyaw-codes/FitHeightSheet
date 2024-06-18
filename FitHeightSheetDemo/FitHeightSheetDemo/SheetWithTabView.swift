@@ -5,42 +5,44 @@
 //  Created by Kyaw Zay Ya Lin Tun on 14/06/2024.
 //
 
-import Foundation
+import SwiftUI
 
-/*
-struct MainView: View {
-  @State private var currentTab = 0
+struct SheetWithTabView: View {
+  @State private var selectedTab = 0
   @State private var showSheet = false
   
   var body: some View {
-    TabView(selection: $currentTab) {
-      ContentView($showSheet)
-        .tag(0)
-        .tabItem {
-          Label("Home", systemImage: "house")
-        }
+    TabView(selection: $selectedTab) {
+      Button("Show sheet") {
+        showSheet.toggle()
+      }
+      .tabItem {
+        Label("Sheet", systemImage: "rectangle.stack.fill")
+      }
+      .tag(0)
       
-      Text("Profile")
-        .tag(0)
+      Text("One")
         .tabItem {
-          Label("Profile", systemImage: "person")
+          Label("One", systemImage: "1.circle.fill")
         }
-      
-      Text("Search")
-        .tag(0)
+        .tag(1)
+      Text("Two")
         .tabItem {
-          Label("Search", systemImage: "magnifyingglass")
+          Label("Two", systemImage: "2.circle.fill")
         }
-      
-      Text("Settings")
-        .tag(0)
+        .tag(2)
+      Text("Three")
         .tabItem {
-          Label("Settings", systemImage: "gear")
+          Label("Three", systemImage: "3.circle.fill")
         }
+        .tag(3)
     }
     .fitHeightSheet(isPresented: $showSheet) {
       SheetView()
     }
   }
 }
- */
+
+#Preview {
+  SheetWithTabView()
+}

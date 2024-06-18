@@ -17,7 +17,11 @@ struct HomeView: View {
           }
           
           NavigationLink(".fitHeightSheet(item:content:)") {
-            
+            SheetPresentationWithOptionalValueView()
+          }
+          
+          NavigationLink("TabView Example") {
+            SheetWithTabView()
           }
         }
       }
