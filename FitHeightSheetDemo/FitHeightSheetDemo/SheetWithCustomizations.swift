@@ -10,24 +10,26 @@ import FitHeightSheet
 
 struct SheetWithCustomizations: View {
   @State private var showSheet = false
+  @State private var interactiveDismissDisabled = false
+  
   var body: some View {
-    ZStack {
-      LinearGradient(
-        colors: [.blue, .purple],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-      )
-      .ignoresSafeArea()
-      
-      Button {
-        showSheet.toggle()
-      } label: {
-        Text("Show sheet")
-          .padding(.horizontal)
-          .padding(.vertical, 8)
-          .background(Capsule().fill(.white))
+    Form {
+      Section {
+        Button {
+          showSheet.toggle()
+        } label: {
+          Text("Show sheet")
+            .tint(.primary)
+        }
+        
+        Toggle("Interactive dismiss disabled", isOn: $interactiveDismissDisabled)
       }
+      .listRowBackground(Rectangle().fill(.regularMaterial))
     }
+    .background(
+      RadialGradient(colors: [.blue, .purple], center: .bottom, startRadius: 70, endRadius: 400)
+    )
+    .scrollContentBackground(.hidden)
     .fitHeightSheet(
       isPresented: $showSheet,
       backdropStyle: .init(color: .cyan, opacity: 0.7),
@@ -37,6 +39,9 @@ struct SheetWithCustomizations: View {
     ){
       SheetView()
     }
+    .fitInteractiveDismissDisabled(interactiveDismissDisabled)
+    .navigationTitle("Customizations")
+    .navigationBarTitleDisplayMode(.inline)
   }
 }
 

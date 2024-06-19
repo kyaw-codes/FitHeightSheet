@@ -11,7 +11,6 @@ extension EnvironmentValues {
   var fitInteractiveDismissDisabled: Bool {
     get { self[InteractiveDismissDisabledKey.self] }
     set {
-      print("set \(newValue)")
       self[InteractiveDismissDisabledKey.self] = newValue
     }
   }
