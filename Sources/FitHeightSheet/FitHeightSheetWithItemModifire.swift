@@ -22,6 +22,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
   private let presentAnimation: AnimationConfiguration
   private let dismissAnimation: AnimationConfiguration
   private let topContentInset: CGFloat
+  private let dismissThreshold: CGFloat
   
   private var body: (Item) -> Body
   private var onDismiss: (() -> Void)?
@@ -36,7 +37,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
         dragOffsetY = value.translation.height
       }
       .onEnded { value in
-        if offsetY > (contentHeight * 0.5) {
+        if offsetY > (contentHeight * dismissThreshold) {
           withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
             item = nil
           }
@@ -58,6 +59,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
     presentAnimation: AnimationConfiguration,
     dismissAnimation: AnimationConfiguration,
     topContentInset: CGFloat,
+    dismissThreshold: CGFloat,
     onDismiss: (() -> Void)?,
     @ViewBuilder _ body: @escaping (Item) -> Body
   ) {
@@ -67,6 +69,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
     self.presentAnimation = presentAnimation
     self.dismissAnimation = dismissAnimation
     self.topContentInset = topContentInset
+    self.dismissThreshold = dismissThreshold
     self.onDismiss = onDismiss
     self.body = body
   }

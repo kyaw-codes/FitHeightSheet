@@ -8,6 +8,7 @@ extension View {
     presentAnimation: AnimationConfiguration = .init(animation: .smooth),
     dismissAnimation: AnimationConfiguration = .init(animation: .bouncy),
     topContentInset: CGFloat = 40,
+    dismissThreshold: CGFloat = 0.5,
     onDismiss: (() -> Void)? = nil,
     @ViewBuilder content: @escaping () -> Body
   ) -> some View {
@@ -18,6 +19,7 @@ extension View {
         presentAnimation: presentAnimation,
         dismissAnimation: dismissAnimation,
         topContentInset: topContentInset,
+        dismissThreshold: dismissThreshold,
         onDismiss: onDismiss,
         content
       )
@@ -30,6 +32,7 @@ extension View {
     presentAnimation: AnimationConfiguration = .init(animation: .smooth),
     dismissAnimation: AnimationConfiguration = .init(animation: .bouncy),
     topContentInset: CGFloat = 40,
+    dismissThreshold: CGFloat = 0.5,
     onDismiss: (() -> Void)? = nil,
     @ViewBuilder content: @escaping (Item) -> Body
   ) -> some View {
@@ -40,6 +43,7 @@ extension View {
         presentAnimation: presentAnimation,
         dismissAnimation: dismissAnimation,
         topContentInset: topContentInset,
+        dismissThreshold: dismissThreshold,
         onDismiss: onDismiss,
         content
       )
