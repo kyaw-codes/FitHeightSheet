@@ -17,6 +17,8 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
   
   @State private  var isPresented = false
   
+  @Environment(\.fitInteractiveDismissDisabled) private var fitInteractiveDismissDisabled
+  
   private let backdropColor: Color
   private let backdropOpacity: CGFloat
   private let presentAnimation: AnimationConfiguration
@@ -37,6 +39,14 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
         dragOffsetY = value.translation.height
       }
       .onEnded { value in
+        guard !fitInteractiveDismissDisabled else {
+          withAnimation(presentAnimation.value) {
+            dragOffsetY = 0
+            offsetY = 0
+          }
+          return
+        }
+        
         if offsetY > (contentHeight * dismissThreshold) {
           withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
             item = nil
@@ -94,6 +104,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
           .ignoresSafeArea()
           .allowsHitTesting(isPresented)
           .onTapGesture {
+            guard !fitInteractiveDismissDisabled else { return }
             withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
               item = nil
             }

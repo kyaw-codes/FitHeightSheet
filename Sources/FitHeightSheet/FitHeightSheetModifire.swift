@@ -14,6 +14,8 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @State private var offsetY = CGFloat.zero
   @State private var contentHeight = CGFloat.zero
   
+  @Environment(\.fitInteractiveDismissDisabled) private var fitInteractiveDismissDisabled
+  
   private let backdropColor: Color
   private let backdropOpacity: CGFloat
   private let presentAnimation: AnimationConfiguration
@@ -34,6 +36,14 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
         dragOffsetY = value.translation.height
       }
       .onEnded { value in
+        guard !fitInteractiveDismissDisabled else {
+          withAnimation(presentAnimation.value) {
+            dragOffsetY = 0
+            offsetY = 0
+          }
+          return
+        }
+        
         if offsetY > (contentHeight * dismissThreshold) {
           withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
             isPresented.toggle()
@@ -91,6 +101,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           .ignoresSafeArea()
           .allowsHitTesting(internalPresented)
           .onTapGesture {
+            guard !fitInteractiveDismissDisabled else { return }
             withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
               isPresented = false
             }
