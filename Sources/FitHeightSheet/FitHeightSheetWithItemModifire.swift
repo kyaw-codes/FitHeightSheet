@@ -105,8 +105,6 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
             EmptyView()
           }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .padding(.top, topContentInset)
         .background(
           GeometryReader {
             Color.clear
@@ -114,6 +112,8 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
               .preference(key: OffsetYKey.self, value: $0.frame(in: .global).minY)
           }
         )
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .padding(.top, topContentInset)
         .onPreferenceChange(ContentHeightKey.self) {
           contentHeight = $0
         }
