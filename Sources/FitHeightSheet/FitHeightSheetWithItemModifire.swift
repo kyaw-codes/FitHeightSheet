@@ -6,17 +6,16 @@
 //
 
 import SwiftUI
+import Combine
 
-struct FitHeightSheetWithItemModifire<Body: View, Item: Identifiable>: ViewModifier {
+struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
   @Binding var item: Item?
   
   @State private var dragOffsetY = CGFloat.zero
   @State private var offsetY = CGFloat.zero
   @State private var contentHeight = CGFloat.zero
 
-  private var internalPresented: Bool {
-    item != nil
-  }
+  @State private  var isPresented = false
   
   private let backdropColor: Color
   private let backdropOpacity: CGFloat
@@ -38,14 +37,14 @@ struct FitHeightSheetWithItemModifire<Body: View, Item: Identifiable>: ViewModif
       }
       .onEnded { value in
         if offsetY > (contentHeight * 0.5) {
-          withAnimation(internalPresented ? presentAnimation.value : dismissAnimation.value) {
+          withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
             item = nil
           }
           DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             dragOffsetY = 0
           }
         } else {
-          withAnimation(internalPresented ? presentAnimation.value : dismissAnimation.value) {
+          withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
             dragOffsetY = 0
             offsetY = 0
           }
@@ -78,7 +77,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item: Identifiable>: ViewModif
         .zIndex(1)
       
       // Backdrop view
-      if internalPresented {
+      if isPresented {
         Rectangle()
           .fill(backdropColor)
           .opacity(
@@ -90,18 +89,22 @@ struct FitHeightSheetWithItemModifire<Body: View, Item: Identifiable>: ViewModif
             )
           )
           .ignoresSafeArea()
-          .allowsHitTesting(internalPresented)
+          .allowsHitTesting(isPresented)
           .onTapGesture {
-            withAnimation(internalPresented ? presentAnimation.value : dismissAnimation.value) {
+            withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
               item = nil
             }
           }
           .zIndex(3)
           .transition(.opacity)
-      }
-      
-      if let item {
-        body(item)
+
+        Group {
+          if let item {
+            body(item)
+          } else {
+            EmptyView()
+          }
+        }
           .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
           .padding(.top, topContentInset)
           .background(
@@ -124,18 +127,24 @@ struct FitHeightSheetWithItemModifire<Body: View, Item: Identifiable>: ViewModif
           .transition(.move(edge: .bottom).combined(with: .opacity))
       }
     }
-    .onChange(of: internalPresented) { _ in
+    .onChange(of: isPresented) { _ in
       onChangeOfIsPresented()
     }
     .onReceive(NotificationCenter.default.publisher(for: .fitHeightSheetDismiss)) { _ in
-      withAnimation(internalPresented ? presentAnimation.value : dismissAnimation.value) {
+      withAnimation(isPresented ? presentAnimation.value : dismissAnimation.value) {
         item = nil
+      }
+    }
+    .onReceive(Just(item)) { item in
+      // This one is very tricky, even though it isPresented, we will have to reverse the animation value
+      withAnimation(isPresented ? dismissAnimation.value : presentAnimation.value) {
+        isPresented = item != nil
       }
     }
   }
   
   private func onChangeOfIsPresented() {
-    if !internalPresented {
+    if !isPresented {
       UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
       onDismiss?()
     }
