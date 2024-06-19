@@ -11,6 +11,7 @@ import FitHeightSheet
 struct SheetWithCustomizations: View {
   @State private var showSheet = false
   @State private var interactiveDismissDisabled = false
+  @State private var dismissThreshold: CGFloat = 0.5
   
   var body: some View {
     Form {
@@ -23,6 +24,11 @@ struct SheetWithCustomizations: View {
         }
         
         Toggle("Interactive dismiss disabled", isOn: $interactiveDismissDisabled)
+        
+        VStack(alignment: .leading, spacing: 4) {
+          Text("Dismiss threshold: \(String(format: "%.2f", arguments: [dismissThreshold * 100]))%")
+          Slider(value: $dismissThreshold, in: 0.2 ... 0.9)
+        }
       }
       .listRowBackground(Rectangle().fill(.regularMaterial))
     }
@@ -35,7 +41,7 @@ struct SheetWithCustomizations: View {
       backdropStyle: .init(color: .cyan, opacity: 0.7),
       presentAnimation: .init(animation: .easeOut),
       dismissAnimation: .init(animation: .easeIn),
-      dismissThreshold: 0.7
+      dismissThreshold: dismissThreshold
     ){
       SheetView()
     }
