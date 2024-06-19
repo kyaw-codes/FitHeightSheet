@@ -16,6 +16,7 @@
 		C87D1A0B2C1CAD110099953D /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A0A2C1CAD110099953D /* SheetView.swift */; };
 		C87D1A0D2C1CAD830099953D /* SheetWithTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A0C2C1CAD830099953D /* SheetWithTabView.swift */; };
 		C87D1A0F2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D1A0E2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift */; };
+		C8C1042C2C2342B800DF342D /* SheetWithCustomizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C1042B2C2342B800DF342D /* SheetWithCustomizations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C87D1A0A2C1CAD110099953D /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		C87D1A0C2C1CAD830099953D /* SheetWithTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithTabView.swift; sourceTree = "<group>"; };
 		C87D1A0E2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentationWithOptionalValueView.swift; sourceTree = "<group>"; };
+		C8C1042B2C2342B800DF342D /* SheetWithCustomizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCustomizations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				C87D1A0E2C1CAD980099953D /* SheetPresentationWithOptionalValueView.swift */,
 				C87D1A0C2C1CAD830099953D /* SheetWithTabView.swift */,
 				C87D1A0A2C1CAD110099953D /* SheetView.swift */,
+				C8C1042B2C2342B800DF342D /* SheetWithCustomizations.swift */,
 				C8032B7B2C073673008C4A7E /* Assets.xcassets */,
 				C8032B7D2C073673008C4A7E /* Preview Content */,
 			);
@@ -163,6 +166,7 @@
 				C8032B7A2C073672008C4A7E /* SheetPresentationWithBoolView.swift in Sources */,
 				C87D1A0B2C1CAD110099953D /* SheetView.swift in Sources */,
 				C8032B782C073672008C4A7E /* FitHeightSheetDemoApp.swift in Sources */,
+				C8C1042C2C2342B800DF342D /* SheetWithCustomizations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

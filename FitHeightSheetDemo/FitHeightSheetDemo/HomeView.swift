@@ -24,6 +24,12 @@ struct HomeView: View {
             SheetWithTabView()
           }
         }
+        
+        Section("Advanced usage") {
+          NavigationLink("Sheet customizations") {
+            SheetWithCustomizations()
+          }
+        }
       }
       .navigationTitle("FitHeightSheet Demo")
     }
