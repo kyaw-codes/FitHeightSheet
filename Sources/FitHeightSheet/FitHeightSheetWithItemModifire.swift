@@ -1,6 +1,6 @@
 //
 //  FitHeightSheetWithItemModifire.swift
-//  
+//
 //
 //  Created by Kyaw Zay Ya Lin Tun on 14/06/2024.
 //
@@ -14,7 +14,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
   @State private var dragOffsetY = CGFloat.zero
   @State private var offsetY = CGFloat.zero
   @State private var contentHeight = CGFloat.zero
-
+  
   @State private  var isPresented = false
   
   private let backdropColor: Color
@@ -97,7 +97,7 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
           }
           .zIndex(3)
           .transition(.opacity)
-
+        
         Group {
           if let item {
             body(item)
@@ -105,26 +105,26 @@ struct FitHeightSheetWithItemModifire<Body: View, Item>: ViewModifier {
             EmptyView()
           }
         }
-          .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-          .padding(.top, topContentInset)
-          .background(
-            GeometryReader {
-              Color.clear
-                .preference(key: ContentHeightKey.self, value: $0.size.height)
-                .preference(key: OffsetYKey.self, value: $0.frame(in: .global).minY)
-            }
-          )
-          .onPreferenceChange(ContentHeightKey.self) {
-            contentHeight = $0
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .padding(.top, topContentInset)
+        .background(
+          GeometryReader {
+            Color.clear
+              .preference(key: ContentHeightKey.self, value: $0.size.height)
+              .preference(key: OffsetYKey.self, value: $0.frame(in: .global).minY)
           }
-          .onPreferenceChange(OffsetYKey.self) { offsetY in
-            let height = UIScreen.main.bounds.height - min(availableContentHeight, contentHeight) - topContentInset
-            self.offsetY = offsetY - height
-          }
-          .offset(y: max(0, dragOffsetY))
-          .gesture(gesture)
-          .zIndex(3)
-          .transition(.move(edge: .bottom).combined(with: .opacity))
+        )
+        .onPreferenceChange(ContentHeightKey.self) {
+          contentHeight = $0
+        }
+        .onPreferenceChange(OffsetYKey.self) { offsetY in
+          let height = UIScreen.main.bounds.height - min(availableContentHeight, contentHeight) - topContentInset
+          self.offsetY = offsetY - height
+        }
+        .offset(y: max(0, dragOffsetY))
+        .gesture(gesture)
+        .zIndex(3)
+        .transition(.move(edge: .bottom).combined(with: .opacity))
       }
     }
     .onChange(of: isPresented) { _ in
