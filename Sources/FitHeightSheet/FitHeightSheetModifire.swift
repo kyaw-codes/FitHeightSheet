@@ -94,9 +94,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           }
           .zIndex(3)
           .transition(.opacity)
-      }
-      
-      if internalPresented {
+
         body()
           .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
           .padding(.top, topContentInset)
