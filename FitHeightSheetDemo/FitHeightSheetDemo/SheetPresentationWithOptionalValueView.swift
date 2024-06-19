@@ -35,7 +35,7 @@ struct SheetPresentationWithOptionalValueView: View {
         .ignoresSafeArea()
       }
       .scrollContentBackground(.hidden)
-      .fitHeightSheet(item: $emoji) {
+      .fitHeightSheet(item: $emoji, onDismiss: { print("onDismiss") }) {
         SheetView(emoji: $0.emoji)
       }
     }

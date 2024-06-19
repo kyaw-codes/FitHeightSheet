@@ -27,7 +27,7 @@ struct SheetPresentationWithBoolView: View {
         .ignoresSafeArea()
       }
       .scrollContentBackground(.hidden)
-      .fitHeightSheet(isPresented: $isPresented) {
+      .fitHeightSheet(isPresented: $isPresented, onDismiss: { print("onDismiss") }) {
         SheetView()
       }
     }
