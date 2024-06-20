@@ -12,7 +12,9 @@ struct SheetWithCustomizations: View {
   @State private var showSheet = false
   @State private var interactiveDismissDisabled = false
   @State private var dismissThreshold: CGFloat = 0.5
-  
+  @State private var backdropColor = Color.cyan
+  @State private var backdropOpacity: CGFloat = 0.5
+
   var body: some View {
     Form {
       Section {
@@ -22,6 +24,20 @@ struct SheetWithCustomizations: View {
           Text("Show sheet")
             .tint(.primary)
         }
+      }
+      .listRowBackground(Rectangle().fill(.regularMaterial))
+      
+      Section() {
+        ColorPicker("Backdrop color", selection: $backdropColor)
+        
+        VStack(alignment: .leading, spacing: 4) {
+          Text("Backdrop opacity: \(String(format: "%.2f", arguments: [backdropOpacity * 100]))%")
+          Slider(value: $backdropOpacity, in: 0.2 ... 0.9)
+        }
+      }
+      .listRowBackground(Rectangle().fill(.regularMaterial))
+
+      Section {
         
         Toggle("Interactive dismiss disabled", isOn: $interactiveDismissDisabled)
         
@@ -38,9 +54,9 @@ struct SheetWithCustomizations: View {
     .scrollContentBackground(.hidden)
     .fitHeightSheet(
       isPresented: $showSheet,
-      backdropStyle: .init(color: .cyan, opacity: 0.7),
-      presentAnimation: .init(animation: .easeOut),
-      dismissAnimation: .init(animation: .easeIn),
+      backdropStyle: .init(color: backdropColor, opacity: 0.7),
+      presentAnimation: .init(animation: .snappy),
+      dismissAnimation: .init(animation: .interactiveSpring),
       dismissThreshold: dismissThreshold
     ){
       SheetView()
