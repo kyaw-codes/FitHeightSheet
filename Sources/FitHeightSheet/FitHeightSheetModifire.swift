@@ -13,6 +13,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
   @State private var dragOffsetY = CGFloat.zero
   @State private var offsetY = CGFloat.zero
   @State private var contentHeight = CGFloat.zero
+  @State private var contentHeightChanged = false
   
   @Environment(\.fitInteractiveDismissDisabled) private var fitInteractiveDismissDisabled
   
@@ -91,7 +92,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
         Rectangle()
           .fill(backdropColor)
           .opacity(
-            calculate(
+            contentHeightChanged ? backdropOpacity : calculate(
               backdropOpacity: backdropOpacity,
               offsetY: offsetY,
               contentHeight: contentHeight,
@@ -120,6 +121,7 @@ struct FitHeightSheetModifire<Body: View>: ViewModifier {
           .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
           .padding(.top, topContentInset)
           .onPreferenceChange(ContentHeightKey.self) {
+            contentHeightChanged = contentHeight != .zero && $0 != contentHeight
             contentHeight = $0
           }
           .onPreferenceChange(OffsetYKey.self) { offsetY in

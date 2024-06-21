@@ -26,7 +26,7 @@ extension View {
     )
   }
   
-  public func fitHeightSheet<Body: View, Item: Identifiable>(
+  public func fitHeightSheet<Body: View, Item>(
     item: Binding<Item?>,
     backdropStyle: BackdropStyle = .default,
     presentAnimation: AnimationConfiguration = .init(animation: .smooth),
