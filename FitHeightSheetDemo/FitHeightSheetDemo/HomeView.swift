@@ -29,6 +29,10 @@ struct HomeView: View {
           NavigationLink("Sheet customizations") {
             SheetWithCustomizations()
           }
+          
+          NavigationLink("Dynamic sheet height at runtime") {
+            FitHeightSheetDynamicHeightView()
+          }
         }
       }
       .navigationTitle("FitHeightSheet Demo")
