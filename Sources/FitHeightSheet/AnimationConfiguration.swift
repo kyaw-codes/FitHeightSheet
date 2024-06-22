@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// `AnimationConfiguration` is a struct that encapsulates an animation and its associated delay. This configuration can be used to create animations with specified delays, providing greater control over the timing of animations for your `fitHeightSheet`.
+/// `AnimationConfiguration` is a struct that encapsulates an animation and its associated delay. This configuration can be used to create animations with specified delays, providing greater control over the timing of animations in your application.
 public struct AnimationConfiguration {
   let animation: Animation
   var delay: TimeInterval = 0
