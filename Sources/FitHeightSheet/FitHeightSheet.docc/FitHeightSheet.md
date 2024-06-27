@@ -18,7 +18,4 @@ The `fitHeightSheet` view modifire allows you to present a sheet that dynamicall
 ### Essentials
 
 - <doc:KeyFeatures>
-
-### Group
-
-- ``Symbol``
+- <doc:Tutorial>
