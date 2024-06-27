@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/master.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/SnippetBuildCommand.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/SnippetBuildCommand.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/Utility/SymbolGraph+Snippet.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/SymbolGraph+Snippet.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/Utility/URL+Status.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/snippet_extract.build/Utility/URL+Status.swiftdeps"
+  }
+}

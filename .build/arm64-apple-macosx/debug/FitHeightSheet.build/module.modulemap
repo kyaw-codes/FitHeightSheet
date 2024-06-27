@@ -1,0 +1,4 @@
+module FitHeightSheet {
+    header "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheet-Swift.h"
+    requires objc
+}

@@ -1,0 +1,53 @@
+{
+  "": {
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/master.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/AnimationConfiguration.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/AnimationConfiguration.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/AnimationConfiguration.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/AnimationConfiguration~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/AnimationConfiguration.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/BackdropStyle.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/BackdropStyle.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/BackdropStyle.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/BackdropStyle~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/BackdropStyle.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/EnvironmentValues+Dismiss.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/EnvironmentValues+Dismiss.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/EnvironmentValues+Dismiss.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/EnvironmentValues+Dismiss~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/EnvironmentValues+Dismiss.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/FitHeightSheet.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheet.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheet.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheet~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheet.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/FitHeightSheetModifire.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetModifire.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetModifire.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetModifire~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetModifire.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/FitHeightSheetWithItemModifire.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetWithItemModifire.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetWithItemModifire.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetWithItemModifire~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/FitHeightSheetWithItemModifire.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/Helpers.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/Helpers.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/Helpers.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/Helpers~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/Helpers.swiftdeps"
+  },
+  "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/Sources/FitHeightSheet/InteractiveDismissDisabled.swift": {
+    "dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/InteractiveDismissDisabled.d",
+    "object": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/InteractiveDismissDisabled.swift.o",
+    "swiftmodule": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/InteractiveDismissDisabled~partial.swiftmodule",
+    "swift-dependencies": "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/FitHeightSheet.build/InteractiveDismissDisabled.swiftdeps"
+  }
+}

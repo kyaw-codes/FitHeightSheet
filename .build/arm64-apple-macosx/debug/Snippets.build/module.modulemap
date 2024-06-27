@@ -1,0 +1,4 @@
+module Snippets {
+    header "/Users/kyawzayyalintun/Documents/01.iOS/01.Indie/FitHeightSheet/.build/arm64-apple-macosx/debug/Snippets.build/Snippets-Swift.h"
+    requires objc
+}
