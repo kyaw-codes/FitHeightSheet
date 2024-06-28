@@ -1,7 +1,4 @@
 # FitHeightSheet
-<!-- <p align="center">
-    <img src="images/logo.png" alt="Ignite logo" width="256" height="234" />
-</p> -->
 
 <p align="left">
     <img src="https://img.shields.io/badge/iOS-14.0+-2980b9.svg" />
@@ -12,8 +9,6 @@
 
 The `fitHeightSheet` view modifier allows you to present a sheet that dynamically adjusts its height based on the content it contains. This is particularly useful when the content does not need to scroll and you want a more compact and visually appealing presentation. While the `FitHeightSheet` package is not intended to replace the native SwiftUI sheet, it complements it by addressing specific use cases where a content-fitted sheet is more appropriate.
 
----
-
 ## Installation
 
 Requires iOS 14+. FitHeightSheet can be installed through the [Swift Package Manager](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
@@ -21,9 +16,6 @@ Add the package URL:
 ```
 https://github.com/kyaw-codes/FitHeightSheet
 ```
-
----
-
 
 ## Tutorial
 
@@ -112,8 +104,6 @@ struct Sheet {
 }
 ```
 
----
-
 ## Key Features
 The FitHeightSheet package enhances SwiftUI applications by providing a sheet that fits precisely around its content.
 
@@ -132,8 +122,6 @@ Options for backdrop style, animations, content inset, and dismissal behavior.
 #### 5. Dismissal Callback 
 An optional closure to execute custom logic when the sheet is dismissed.
 
----
-
 ## Usecases
 The FitHeightSheet package is ideal for specific scenarios where a sheet that adapts to its content's height is needed. 
 
@@ -143,8 +131,6 @@ The FitHeightSheet package is ideal for situations where:
 - Showing additional options or details that fit within a specific area.
 
 > For more information, please check out the Example directory to discover more additional usecases.
-
----
 
 ## Limitations
 
@@ -160,8 +146,6 @@ When dynamically updating the sheet's content height (e.g., expanding/collapsing
 The package does not currently support sheets with keyboard interactions. If you have an input text field inside your sheet, the backdrop opacity will become fully opaque when the keyboard is displayed.
 
 > In above cases, please use the native SwiftUI sheet.
-
----
 
 ## License
 
