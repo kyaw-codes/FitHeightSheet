@@ -10,4 +10,4 @@ The FitHeightSheet package is ideal for situations where:
 - The content within the sheet does not need to scroll.
 - Showing additional options or details that fit within a specific area.
 
-For more information, please check out the FitHeightSheetDemo project to discover more additional usecases.
+> For more information, please check out the Example directory to discover more additional usecases.
